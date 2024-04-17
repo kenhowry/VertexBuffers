@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Ken Howry
+Lab 2 - COMP3801 Spring 2021
+  Basic WebGL2 shaders, mouse events and coordinates
+-->
+<html>
+  <head>
+    <title>Lab 2 - Basic WebGL</title>
+    <link rel="icon" type="image/png" href="COMP3801_RGB_cube.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Common/webgl-utils-2.js" type="text/javascript"></script>
+    <script src="Common/initShaders2.js" type="text/javascript"></script>
+    <script src="Common/MV.js" type="text/javascript"></script>
+    <script src="Lab2.js" type="text/javascript"></script>
+  </head>
+  <body onload="new Lab2('lab2-canvas')">
+    <div align="center">
+      <div>
+        Mouse x: <span id="lab2-canvas-mousex">?</span>
+        &nbsp;&nbsp;y: <span id="lab2-canvas-mousey">?</span>
+        &nbsp;&nbsp;button: <span id="lab2-canvas-mousebutton">?</span>
+      </div>
+      <div>
+        Clip Coordinates x: <span id="lab2-canvas-mousewx">?</span>
+        &nbsp;&nbsp;y: <span id="lab2-canvas-mousewy">?</span>
+      </div>
+      <canvas id="lab2-canvas" width="700" height="525" oncontextmenu="return false">
+        This browser doesn't support the HTML5 canvas element
+      </canvas>
+      <table border=1>
+        <tr style="background-color: red; color: white">
+          <td><input id="lab2-canvas-r-slider" type="range" 
+                     min="0.0" max="1.0" value="0.5" step="0.01" style="width:200px" /></td>
+          <td>Red</td>
+          <td id="lab2-canvas-r-value" style="width: 40px; text-align: center">0.5</td>
+        </tr>
+        <tr style="background-color: green; color: white">
+          <td><input id="lab2-canvas-g-slider" type="range" 
+                     min="0.0" max="1.0" value="0.5" step="0.01" style="width:200px" /></td>
+          <td>Green</td>
+          <td id="lab2-canvas-g-value" style="width: 40px; text-align: center">0.5</td>
+        </tr>
+        <tr style="background-color: blue; color: white">
+          <td><input id="lab2-canvas-b-slider" type="range" 
+                     min="0.0" max="1.0" value="0.5" step="0.01" style="width:200px" /></td>
+          <td>Blue</td>
+          <td id="lab2-canvas-b-value" style="width: 40px; text-align: center">0.5</td>
+        </tr>
+      </table>
+      <form>
+        <input type="radio" id="-points" name="mode" value="Points" checked>
+        <label for="option1">Points</label><br>
+
+        <input type="radio" id="-lines" name="mode" value="Lines">
+        <label for="option2">Lines</label><br>
+
+        <input type="radio" id="-linestrips" name="mode" value="LineStrip">
+        <label for="option3">LineStrips</label><br>
+        
+        <input type="radio" id="-lineloops" name="mode" value="LineLoop">
+        <label for="option3">LineLoops</label><br>
+        
+        <input type="radio" id="-triangles" name="mode" value="Triangles">
+        <label for="option3">Triangles</label><br>
+        
+        <input type="radio" id="-trianglestrips" name="mode" value="TriangleStrip">
+        <label for="option3">TriangleStrips</label><br>
+        
+        <input type="radio" id="-trianglefan" name="mode" value="TriangleFan">
+        <label for="option3">TriangleFan</label><br>
+      </form>
+      <button id="lab2-canvas-reset-button">Reset</button>
+    </div>
+  </body>
+</html>
